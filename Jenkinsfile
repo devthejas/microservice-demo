@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/devthejas/microservice-demo.git'
+                echo 'Cloning Repository'
             }
         }
 
