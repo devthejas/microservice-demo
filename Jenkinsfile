@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                git 'https://github.com/devthejas/microservice-demo.git'
-            }
-        }
-
         stage('Terraform Init') {
             steps {
                 sh 'terraform init'
