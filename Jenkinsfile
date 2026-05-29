@@ -5,23 +5,19 @@ pipeline {
 
         stage('Clone') {
             steps {
-                echo 'Cloning Repository'
+                git 'https://github.com/devthejas/microservice-demo.git'
             }
         }
 
-        stage('Build') {
+        stage('Terraform Init') {
             steps {
-                echo 'Building Application'
+                sh 'terraform init'
             }
         }
 
-        stage('Deploy') {
+        stage('Terraform Apply') {
             steps {
-                sh '''
-                mkdir -p /tmp/deployment
-                cp index.html /tmp/deployment/
-                echo "Deployment Complete"
-                '''
+                sh 'terraform apply -auto-approve'
             }
         }
     }
